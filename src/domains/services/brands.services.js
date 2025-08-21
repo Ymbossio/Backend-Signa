@@ -38,13 +38,13 @@ class BrandsServices {
         }
     }
 
-    async update(id, nombre, correo, telefono) {
+    async update(id, brands, holder, state) {
 
 
         try {
-            const user = await this.findOne(id);
-            if (user) {
-                const res = await user.update({nombre, correo, telefono});
+            const row = await this.findOne(id);
+            if (row) {
+                const res = await row.update({ brands, holder, state});
                 return res;
             }
             throw new Error('Brand not found');
@@ -57,9 +57,9 @@ class BrandsServices {
     async delete(id) {
 
         try {
-            const user = await this.findOne(id);
-            if (user) {
-                const res = await user.destroy();
+            const row = await this.findOne(id);
+            if (row) {
+                const res = await row.destroy();
                 return res;
             }
             throw new Error('Brand not found');

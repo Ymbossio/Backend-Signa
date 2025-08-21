@@ -5,9 +5,9 @@ const router = Router();
 
 
 router
-    .get('/brands/', getAllBrands)
-    .get('/brands/:id', getOneBrands)
-    .post('/brands', createBrands)
-    .put('/brands/:id', updateBrands)
-    .delete('/brands/:id', deleteBrands)
+    .get('/brandsAll', getAllBrands)
+    .get('/brandsOne/:id', getOneBrands)
+    .post('/brandsCreate', createBrands)
+    .put('/brandsUpdate/:id', updateBrands)
+    .delete('/brandsDelete/:id', deleteBrands)
 export default router;

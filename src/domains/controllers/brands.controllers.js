@@ -40,13 +40,13 @@ export const getOneBrands = async (req, res) => {
 export const updateBrands = async (req, res) => {
     try {
         const { id } = req.params
-        const {nombre, correo, telefono} = req.body
+        const {brands, holder, state} = req.body
 
         if (isNaN(id)) {
             return res.status(400).json({ success: false, message: 'ID is required' });
         }
 
-        const response = await service.update(id, nombre, correo, telefono)
+        const response = await service.update(id, brands, holder, state)
         res.json({success: true, data: response})
     } catch (error) {
         res.status(500).json({success: false, message: error.message})
