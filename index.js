@@ -1,8 +1,8 @@
 import express from "express";
 import cors from 'cors'
-import RouterApi from "./routes/index.js";
+import RouterApi from "./src/domains/routes/index.js";
 import dotenv from 'dotenv';
-import connectDataBase from "./infrastructure/sequelize.js";
+import connectDataBase from "./src/domains/infrastructure/sequelize.js";
 
 dotenv.config()
 

@@ -2,10 +2,10 @@
   "name": "BackendSigna",
   "version": "1.0.0",
   "description": "",
-  "main": "src/domains/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/domains/index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
