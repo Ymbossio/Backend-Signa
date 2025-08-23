@@ -4,9 +4,20 @@ import BrandsServices from "../services/brands.services.js";
 const service = new BrandsServices();
 
 export const createBrands = async (req, res) => {
+
     try {
+        const { brands } = req.body
+        const existingBrand = await service.findOneByName(brands);
+        if (existingBrand) {
+            return res.status(400).json({
+                success: false,
+                message: 'La marca ya existe. No se puede duplicar.'
+            });
+        }
+
         const response = await service.create(req.body)
-        res.json({success: true, data: response})      
+        res.json({success: true, data: response})  
+
     } catch (error) {  
         res.status(500).json({success: false, message: error.message})
     }

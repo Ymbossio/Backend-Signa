@@ -1,4 +1,5 @@
 import BrandsRepository from '../repositories/brands.repository.js';
+import { Sequelize } from 'sequelize';
 
 class BrandsServices {
 
@@ -27,6 +28,16 @@ class BrandsServices {
             throw new Error(error.message);
         }
     }
+
+    async findOneByName(name) {
+        return await this.brandsRepository.findOne({
+            where: Sequelize.where(
+                Sequelize.fn('LOWER', Sequelize.col('brands')),
+                Sequelize.fn('LOWER', name)
+            )
+        });
+    }
+
 
     async create(data) {
 

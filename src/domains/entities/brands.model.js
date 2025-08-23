@@ -34,6 +34,7 @@ export const BrandsSchema = {
     state:{
         allowNull: false,
         type: DataTypes.STRING,
-        field: 'state'
+        field: 'state',
+        defaultValue: 'activo'
     }
 }

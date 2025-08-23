@@ -23,6 +23,10 @@ class BrandesRepository {
         throw new Error('Brand not found');
     }
 
+    async findOne(condition) {
+        return await Brands.findOne(condition);
+    }
+
     async delete(id) {
         const row = await this.findById(id);
         if (row) {
