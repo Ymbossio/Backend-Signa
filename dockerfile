@@ -23,4 +23,4 @@ COPY . .
 EXPOSE 8021
 
 # Iniciar el servidor
-CMD ["npm", "start"]
+CMD ["npm", "src/domains/index.js"]

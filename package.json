@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch src/domains/index.js"
+    "start": "node src/domains/index.js"
   },
   "keywords": [],
   "author": "",
