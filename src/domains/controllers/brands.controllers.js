@@ -54,8 +54,22 @@ export const updateBrands = async (req, res) => {
         const {brands, holder, state} = req.body
 
         if (isNaN(id)) {
-            return res.status(400).json({ success: false, message: 'ID is required' });
+            return res.status(400).json({ success: false, message: 'ID inválido' });
         }
+
+        const exits = await service.findOne(id);
+        if (!exits) {
+            return res.status(404).json({ success: false, message: 'No se encontró el registro' });
+        }
+
+        const existingBrand = await service.findOneByName(brands);
+        if (existingBrand) {
+        return res.status(400).json({
+            success: false,
+            message: 'La marca ya existe. No se puede duplicar.'
+        });
+        }
+
 
         const response = await service.update(id, brands, holder, state)
         res.json({success: true, data: response})
