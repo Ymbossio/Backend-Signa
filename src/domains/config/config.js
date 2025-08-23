@@ -21,7 +21,7 @@ const config = {
   port: port,
   database: process.env.NODE_DATABASE,
   dialectOptions,
-  logging: false,
+  logging: console.log,
 };
 
 export default config;
