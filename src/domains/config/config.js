@@ -1,7 +1,8 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const port = process.env.NODE_PORT ? parseInt(process.env.NODE_PORT, 10) : undefined;
+const port = process.env.NODE_PORT ? parseInt(process.env.NODE_PORT, 10) : 5432;
+
 
 const dialectOptions = process.env.NODE_ENV !== 'development'
   ? {
