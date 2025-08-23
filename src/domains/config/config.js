@@ -3,7 +3,6 @@ dotenv.config();
 
 const port = process.env.NODE_PORT ? parseInt(process.env.NODE_PORT, 10) : 5432;
 
-
 const dialectOptions = process.env.NODE_ENV !== 'development'
   ? {
       ssl: {
@@ -14,7 +13,7 @@ const dialectOptions = process.env.NODE_ENV !== 'development'
   : {};
 
 const config = {
-  dialect: process.env.NODE_DIALECT,  
+  dialect: process.env.NODE_DIALECT || 'postgres',
   host: process.env.NODE_HOST,
   username: process.env.NODE_USER,
   password: process.env.NODE_PASSWORD,
