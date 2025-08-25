@@ -63,7 +63,7 @@ export const updateBrands = async (req, res) => {
         }
 
         const existingBrand = await service.findOneByName(brands);
-        if (existingBrand) {
+        if (existingBrand && existingBrand.id !== id) {
         return res.status(400).json({
             success: false,
             message: 'La marca ya existe. No se puede duplicar.'
